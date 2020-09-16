@@ -53,7 +53,7 @@ const Destination = () => {
                                     }} />
                             </InputGroup>
                             <Link className="link" to={`/hotels/${placeName}`}>
-                                <Button variant="warning" type="submit" className="btn-large btn-block">Book For {stay.to ? totalDays : 0} Days</Button>
+                            <Button variant="warning" type="submit" className="btn-large btn-block">Book For {stay.to ? totalDays : 0} Days</Button>
                             </Link>
                         </Form>
                     </Col>

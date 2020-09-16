@@ -6,13 +6,13 @@ import star from './star.png';
 
 const Hotels = () => {
     const {placeName} = useParams();
-    const {hotels} = fakeData.find(place => place.name === placeName);
+    const {hotels, map} = fakeData.find(place => place.name === placeName);
 
     return (
         <section className="hotels text-white">
             <Container>
                 <h3 className="text-center text-warning mb-3">{hotels.length} hotels are available for {placeName}</h3>
-                <Row>
+                <Row className="align-items-stretch">
                     <Col md={6}>
                         {hotels.map(hotel => 
                         <Row key={hotel.name} className="align-items-stretch bg-light p-3 text-dark rounded my-3">
@@ -34,8 +34,8 @@ const Hotels = () => {
                             </Col>
                         </Row>)}
                     </Col>
-                    <Col md={6}>
-                        <h2>Google Maps here</h2>
+                    <Col md={6} className="my-3">
+                        <iframe src={map} width="100%" height="675" frameborder="1" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                     </Col>
                 </Row>
             </Container>
