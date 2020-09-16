@@ -1,0 +1,25 @@
+#home .placeName {
+    font-size: 44px;
+    font-weight: bold;
+}
+#home .photo {
+    width: 100%;
+    border: 2px solid yellow;
+    border-radius: 20px;
+}
+#home .small{
+    font-weight: bold;
+    border: none;
+}
+@media screen and (max-width: 576px) {
+    #home .placeName{
+        font-size: 30px;
+    }
+    #home .photo {
+        display: none;
+    }
+    #home .small{
+        border: 5px solid yellow;
+        border: 1px solid yellow;
+    }
+}

@@ -1,0 +1,9 @@
+#nav {
+    background-color: #00000083;
+    color: white;
+}
+#nav img{
+    background-color: white;
+    padding: 5px;
+    border-radius: 10px;
+}
