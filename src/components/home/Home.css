@@ -11,6 +11,9 @@
     font-weight: bold;
     border: none;
 }
+#home .small:active {
+    transform: scale(0.98);
+}
 @media screen and (max-width: 576px) {
     #home .placeName{
         font-size: 30px;
@@ -19,7 +22,7 @@
         display: none;
     }
     #home .small{
-        border: 5px solid yellow;
+        padding: 10px;
         border: 1px solid yellow;
     }
 }

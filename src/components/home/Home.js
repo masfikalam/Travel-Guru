@@ -16,10 +16,10 @@ const Home = () => {
                         <Row>
                             {places.map(place =>
                                 <Col className="placePhoto" sm={4} key={place.name}>
-                                    <Button onClick={() => setShowPlace(place)} className="small mt-3 text-white d-block bg-transparent">
+                                    <div onClick={() => setShowPlace(place)} className="small mt-3 text-white text-center d-block bg-transparent">
                                         <img src={place.photo} alt="" className="photo" />
                                         {place.name}
-                                    </Button>
+                                    </div>
                                 </Col>)}
                         </Row>
                     </Col>
@@ -27,7 +27,7 @@ const Home = () => {
                         <h1 className="placeName my-3">{showPlace.name}</h1>
                         <p className="text-justify">{showPlace.shortDesc}</p>
                         <Link to={"/destination/" + showPlace.name}>
-                            <Button variant="warning">Book Now</Button>
+                            <Button variant="warning">See Booking</Button>
                         </Link>
                     </Col>
                 </Row>

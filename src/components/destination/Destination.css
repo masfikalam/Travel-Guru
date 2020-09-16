@@ -2,3 +2,6 @@
     font-size: 44px;
     font-weight: bold;
 }
+.destination .link{
+    text-decoration: none;
+}

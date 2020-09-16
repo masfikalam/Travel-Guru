@@ -1,6 +1,6 @@
 const fakeData = [
     {
-        name: 'SAJEK',
+        name: 'SAJEK-VALLEY',
         photo: 'https://raw.githubusercontent.com/ProgrammingHero1/travel-guru/master/Image/Sajek.png',
         shortDesc: 'Sajek Valley is an emerging tourist spot in Bangladesh situated among the hills of the Kasalong range of mountains in Sajek union, Baghaichhari Upazila in Rangamati District. The valley is 1,476 feet (450 m) above sea level. Sajek valley is known as the Queen of Hills & Roof of Rangamati.',
         longDesc: "Sajek valley is known for its natural environment and is surrounded by mountains, dense forest, and grassland hill tracks. Many small rivers flow through the mountains among which the Kachalong and the Machalong are notable. On the way to Sajek valley, one has to cross the Mayni range and the Mayni river. The road to Sajek has high peaks and falls. The native people of Sajek valley are ethnic minorities. Among them Chakma, Marma, Tripura, Pankua, Kaibarta, Lushai, other indigenous Assamese communities, and Sagma are mentionable. Women seem to be more involved in economic activities here. Tea stalls, food joints and roadside marketplaces are dominated by women. Picking fruits and vegetables early in the morning is a common trade here. They are not fluent in Bengali but the young population speak some English.",
@@ -8,17 +8,20 @@ const fakeData = [
             {
                 name: 'HOTEL PARAMOUNT',
                 photo: 'https://raw.githubusercontent.com/ProgrammingHero1/travel-guru/master/Image/Rectangle%2027.png',
-                perNight: '30'
+                perNight: 30,
+                rating: 5.0 
             },
             {
                 name: 'HOTEL MONKEY',
                 photo: 'https://raw.githubusercontent.com/ProgrammingHero1/travel-guru/master/Image/Rectangle%2026.png',
-                perNight: '26'
+                perNight: 26,
+                rating: 4.6 
             },
             {
                 name: 'HOTEL VIESTA',
                 photo: 'https://raw.githubusercontent.com/ProgrammingHero1/travel-guru/master/Image/Rectangle%2028.png',
-                perNight: '48'
+                perNight: 48,
+                rating: 4.9 
             }
         ]
     },
@@ -31,17 +34,20 @@ const fakeData = [
             {
                 name: 'HOTEL TEECUP',
                 photo: 'https://raw.githubusercontent.com/ProgrammingHero1/travel-guru/master/Image/Rectangle%2026.png',
-                perNight: '27'
-            },
-            {
-                name: 'HOTEL CLOUDFLARE',
-                photo: 'https://raw.githubusercontent.com/ProgrammingHero1/travel-guru/master/Image/Rectangle%2027.png',
-                perNight: '20'
+                perNight: 27,
+                rating: 3.8 
             },
             {
                 name: 'HOTEL ROOFTOP',
                 photo: 'https://raw.githubusercontent.com/ProgrammingHero1/travel-guru/master/Image/Rectangle%2028.png',
-                perNight: '12'
+                perNight: 12,
+                rating: 4.8 
+            },
+            {
+                name: 'HOTEL CLOUDFLARE',
+                photo: 'https://raw.githubusercontent.com/ProgrammingHero1/travel-guru/master/Image/Rectangle%2027.png',
+                perNight: 20,
+                rating: 4.4 
             }
         ]
     },
@@ -51,20 +57,24 @@ const fakeData = [
         shortDesc: "The Sundarbans is a mangrove area in the delta formed by the confluence of the Ganges, Brahmaputra and Meghna Rivers in the Bay of Bengal. It spans from the Hooghly River in India's state of West Bengal to the Baleswar River in Bangladesh. It comprises closed and open mangrove forests, agriculturally used land and mudflats and barren land.",
         longDesc: "The Sundarbans Mangroves ecoregion on the coast forms the seaward fringe of the delta and is the world's largest mangrove ecosystem, with 20,400 square kilometres (7,900 sq mi) of an area covered. The dominant mangrove species Heritiera fomes is locally known as sundri or sundari. Mangrove forests are not home to a great variety of plants. They have a thick canopy, and the undergrowth is mostly seedlings of the mangrove trees. Besides the sundari, other tree species in the forest include Avicennia, Xylocarpus mekongensis, Xylocarpus granatum, Sonneratia apetala, Bruguiera gymnorhiza, Ceriops decandra, Aegiceras corniculatum, Rhizophora mucronata, and Nypa fruticans palms. Twenty-six of the fifty broad mangrove species found in the world grow well in the Sundarbans. The commonly identifiable vegetation types in the dense Sundarbans mangrove forests are salt water mixed forest, mangrove scrub, brackish water mixed forest, littoral forest, wet forest and wet alluvial grass forests.",
         hotels: [
-            {
-                name: 'HOTEL QUADRINO',
-                photo: 'https://raw.githubusercontent.com/ProgrammingHero1/travel-guru/master/Image/Rectangle%2027.png',
-                perNight: '40'
-            },
+            
             {
                 name: 'HOTEL ROAR',
                 photo: 'https://raw.githubusercontent.com/ProgrammingHero1/travel-guru/master/Image/Rectangle%2026.png',
-                perNight: '48'
+                perNight: 48,
+                rating: 4.5 
+            },
+            {
+                name: 'HOTEL QUADRINO',
+                photo: 'https://raw.githubusercontent.com/ProgrammingHero1/travel-guru/master/Image/Rectangle%2027.png',
+                perNight: 40,
+                rating: 4.3 
             },
             {
                 name: 'HOTEL MOSQUITO',
                 photo: 'https://raw.githubusercontent.com/ProgrammingHero1/travel-guru/master/Image/Rectangle%2028.png',
-                perNight: '29'
+                perNight: 29,
+                rating: 4.9 
             }
         ]
     }

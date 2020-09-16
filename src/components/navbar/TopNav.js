@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Navbar.css'
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import logo from './travel.png';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../App';
 
 const TopNav = () => {
+    const [user, setUser] = useContext(UserContext);
+
     return (
         <Navbar collapseOnSelect expand="lg" variant="dark" fixed="top" id="nav">
             <Container fluid>
@@ -20,7 +23,17 @@ const TopNav = () => {
                         <Nav.Link className="text-white">News</Nav.Link>
                         <Nav.Link className="text-white">Destinations</Nav.Link>
                         <Nav.Link className="text-white">About</Nav.Link>
-                        <Button variant="warning" className="mx-2">Login</Button>
+                        {user.signed?
+                        <Button onClick={() => setUser({
+                            signed: false,
+                            name: '',
+                            email: '',
+                            password: '',
+                            message: ''
+                        })} variant="warning" className="mx-2">Logout, {user.name}</Button> :
+                        <Link to="/login">
+                            <Button variant="warning" className="mx-2">Login</Button>
+                        </Link>}
                     </Nav>
                 </Navbar.Collapse>
             </Container>

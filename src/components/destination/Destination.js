@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Destination.css'
 import { Button, Col, Container, Form, FormControl, InputGroup, Row } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import fakeData from '../../FakeData/FakeData';
 
 const Destination = () => {
@@ -30,39 +30,31 @@ const Destination = () => {
                                 <InputGroup.Prepend>
                                 <InputGroup.Text>Destination</InputGroup.Text>
                                 </InputGroup.Prepend>
-                                <FormControl className="bg-white" aria-label="destination" readOnly value={destination.name} />
+                                <FormControl required className="bg-white" aria-label="destination" readOnly value={destination.name} />
                             </InputGroup>
-                            
-                            <InputGroup className="mb-3">
-                                <InputGroup.Prepend>
-                                <InputGroup.Text>Origin</InputGroup.Text>
-                                </InputGroup.Prepend>
-                                <FormControl aria-label="Origin" />
-                            </InputGroup>
-
                             <InputGroup className="mb-3">
                                 <InputGroup.Prepend>
                                 <InputGroup.Text>From</InputGroup.Text>
                                 </InputGroup.Prepend>
-                                <FormControl name="from" type="date" onChange={(e) => {
+                                <FormControl required name="from" type="date" onChange={(e) => {
                                     const newFrom = {...stay};
                                     newFrom.from = e.target.value;
                                     setStay(newFrom)
                                     }} />
                             </InputGroup>
-
                             <InputGroup className="mb-3">
                                 <InputGroup.Prepend>
                                 <InputGroup.Text>To</InputGroup.Text>
                                 </InputGroup.Prepend>
-                                <FormControl name="to" type="date" onChange={(e) => {
+                                <FormControl required name="to" type="date" onChange={(e) => {
                                     const newTo = {...stay};
                                     newTo.to = e.target.value;
                                     setStay(newTo)
                                     }} />
                             </InputGroup>
-
-                            <Button variant="warning" className="btn-large btn-block">Travel For {stay.to ? totalDays : 0} Days</Button>
+                            <Link className="link" to={`/hotels/${placeName}`}>
+                                <Button variant="warning" type="submit" className="btn-large btn-block">Book For {stay.to ? totalDays : 0} Days</Button>
+                            </Link>
                         </Form>
                     </Col>
                 </Row>
