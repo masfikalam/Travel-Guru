@@ -35,7 +35,7 @@ const Hotels = () => {
                         </Row>)}
                     </Col>
                     <Col md={6} className="my-3">
-                        <iframe src={map} width="100%" height="675" frameborder="1" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                        <iframe title={placeName} src={map} width="100%" height="675" frameBorder="1" allowFullScreen="" aria-hidden="false" tabIndex="0"></iframe>
                     </Col>
                 </Row>
             </Container>

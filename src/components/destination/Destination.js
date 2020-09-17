@@ -7,13 +7,14 @@ import fakeData from '../../FakeData/FakeData';
 const Destination = () => {
     const {placeName} = useParams();
     const destination = fakeData.find(place => place.name === placeName);
-    const [stay, setStay] = useState({from:0, to:0});
 
     // difference of days
+    const [stay, setStay] = useState({from:0, to:0});
     const fromDay = new Date(stay.from);
     const toDay = new Date(stay.to);
-    const diff = Math.abs(fromDay - toDay);
+    const diff = toDay - fromDay;
     const totalDays = (((diff/1000)/3600)/24);
+    const disable = totalDays < 1;
 
     return (
         <section className="destination text-white">
@@ -25,6 +26,7 @@ const Destination = () => {
                     </Col>
                     <Col lg={2} className="d-none d-lg-block"></Col>
                     <Col lg={5} className="mb-5 mb-lg-0">
+                        <h2 className="text-center mb-3">Booking</h2>
                         <Form className="text-dark">
                             <InputGroup className="mb-3">
                                 <InputGroup.Prepend>
@@ -52,8 +54,9 @@ const Destination = () => {
                                     setStay(newTo)
                                     }} />
                             </InputGroup>
+
                             <Link className="link" to={`/hotels/${placeName}`}>
-                            <Button variant="warning" type="submit" className="btn-large btn-block">Book For {stay.to ? totalDays : 0} Days</Button>
+                                <Button disabled={disable} variant="warning" type="submit" className="btn-large btn-block">{disable ? 'You cannot book for less then 1 day' : `Book For ${stay.to ? totalDays : 0} Days`}</Button>
                             </Link>
                         </Form>
                     </Col>

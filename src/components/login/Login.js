@@ -14,6 +14,7 @@ firebase.initializeApp(firebaseConfig);
 const Login = () => {
     const [user, setUser] = useContext(UserContext);
     const [newUser, setNewUser] = useState(true);
+    const [validForm, setValidForm] = useState(true)
     const history = useHistory();
     const location = useLocation();
     const {from} = location.state || {from:{pathname:"/"}};
@@ -66,11 +67,23 @@ const Login = () => {
     const handleBlur = (e) => {
         const optUser = {...user};
         optUser[e.target.name] = e.target.value;
+        if(e.target.name === 'confirm'){
+            if(e.target.value !== user.password){
+                optUser.message = "Password Didn't Match";
+                console.log('bad form')
+                setValidForm(false)
+            }
+            else{
+                optUser.message = '';
+                setValidForm(true);
+            }
+        }
         setUser(optUser)
     }
     
     const subForm = (e) => {
         if (newUser){
+            if(validForm) {
             // email sign in
             firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
             .then(() => {
@@ -89,6 +102,7 @@ const Login = () => {
                 optUser.message = error.message;
                 setUser(optUser)
             });
+        }
         }
         if (!newUser) {
             // email login
@@ -123,7 +137,22 @@ const Login = () => {
         });
     }
 
-    console.log(user)
+    // forgot password
+    const forgotPass = () => {
+        const auth = firebase.auth();
+        var emailAddress = user.email;
+        auth.sendPasswordResetEmail(emailAddress)
+        .then(() => {
+            const optUser = {...user};
+            optUser.message = 'Password reset link sent to your email'
+            setUser(optUser);
+        })
+        .catch(() => {
+            const optUser = {...user};
+            optUser.message = 'Email address is empty or badly formatted'
+            setUser(optUser);
+        });
+    }
 
     return (
         <Container className="text-center text-white">
@@ -136,10 +165,12 @@ const Login = () => {
 
                         <FormControl onBlur={handleBlur} name="password" type="password" placeholder="Your Password" className="my-3 bg-light" required />
 
-                        {newUser && <FormControl  type="password" name="password" placeholder="Confirm Password" className="my-3 bg-light" required />}
+                        {newUser && <FormControl onBlur={handleBlur}  type="password" name="confirm" placeholder="Confirm Password" className="my-3 bg-light" required />}
 
                         <button className="btn-warning btn-sm" type="submit">{newUser ? 'Sign Up' : 'Login'}</button>
-                        <span className="d-block btn my-4 text-light" onClick={()=>{
+                        {!newUser && <span onClick={forgotPass} className="btn text-primary">Forgot Password</span> }
+
+                        <span className="btn btn-dark my-4 text-light btn-block w-50 mx-auto" onClick={()=>{
                             setNewUser(!newUser);
                             setUser({
                                 signed: false,
@@ -149,6 +180,7 @@ const Login = () => {
                                 message: ''
                             });
                         }}>{newUser ? 'I have an account' : 'I am new here'}</span>
+
                         <h6 className="text-warning text-center mt-4">{user.message}</h6>
                     </Form>
                     <hr className="bg-white" />
@@ -161,8 +193,6 @@ const Login = () => {
                         <img src={fb} className="icon" alt=""/>
                         Sign in with Facebook
                     </Button>
-                    
-                
             </div>
             
         </Container>
