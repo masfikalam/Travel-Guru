@@ -24,19 +24,22 @@ const Destination = () => {
                         <h3 className="placeName text-center text-md-left my-4">{destination.name}</h3>
                         <p className="text-justify">{destination.longDesc}</p>
                     </Col>
+
                     <Col lg={2} className="d-none d-lg-block"></Col>
+
                     <Col lg={5} className="mb-5 mb-lg-0">
                         <h2 className="text-center mb-3">Booking</h2>
                         <Form className="text-dark">
                             <InputGroup className="mb-3">
                                 <InputGroup.Prepend>
-                                <InputGroup.Text>Destination</InputGroup.Text>
+                                    <InputGroup.Text>Destination</InputGroup.Text>
                                 </InputGroup.Prepend>
                                 <FormControl required className="bg-white" aria-label="destination" readOnly value={destination.name} />
                             </InputGroup>
+
                             <InputGroup className="mb-3">
                                 <InputGroup.Prepend>
-                                <InputGroup.Text>From</InputGroup.Text>
+                                    <InputGroup.Text>From</InputGroup.Text>
                                 </InputGroup.Prepend>
                                 <FormControl required name="from" type="date" onChange={(e) => {
                                     const newFrom = {...stay};
@@ -44,9 +47,10 @@ const Destination = () => {
                                     setStay(newFrom)
                                     }} />
                             </InputGroup>
+
                             <InputGroup className="mb-3">
                                 <InputGroup.Prepend>
-                                <InputGroup.Text>To</InputGroup.Text>
+                                    <InputGroup.Text>To</InputGroup.Text>
                                 </InputGroup.Prepend>
                                 <FormControl required name="to" type="date" onChange={(e) => {
                                     const newTo = {...stay};
@@ -56,7 +60,13 @@ const Destination = () => {
                             </InputGroup>
 
                             <Link className="link" to={`/hotels/${placeName}`}>
-                                <Button disabled={disable} variant="warning" type="submit" className="btn-large btn-block">{disable ? 'You cannot book for less then 1 day' : `Book For ${stay.to ? totalDays : 0} Days`}</Button>
+                                <Button disabled={disable} variant="warning" type="submit" className="btn-large btn-block">
+                                    {
+                                        disable ?
+                                        'You cannot book for less then 1 day' :
+                                        `Book For ${totalDays} Days`
+                                    }
+                                </Button>
                             </Link>
                         </Form>
                     </Col>

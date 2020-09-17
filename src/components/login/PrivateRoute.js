@@ -6,13 +6,15 @@ const PrivateRoute = ({children, ...rest}) => {
     const [user] = useContext(UserContext);
     
     return (
-        <Route {...rest} render={({ location }) =>
-        user.signed ?
-        (children) :
-        (<Redirect to={{
+        <Route {...rest} 
+        render={({ location }) =>
+            user.signed ?
+            (children) :
+            (<Redirect to={{
               pathname: "/login",
               state: { from: location }}}/>
-        )}/>
+            )
+        }/>
     );
 };
 

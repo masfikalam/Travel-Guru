@@ -23,17 +23,19 @@ const TopNav = () => {
                         <Nav.Link className="text-white">News</Nav.Link>
                         <Nav.Link className="text-white">Destinations</Nav.Link>
                         <Nav.Link className="text-white">About</Nav.Link>
-                        {user.signed?
-                        <Button onClick={() => setUser({
-                            signed: false,
-                            name: '',
-                            email: '',
-                            password: '',
-                            message: ''
-                        })} variant="warning" className="mx-2">Logout, {user.name}</Button> :
-                        <Link to="/login">
-                            <Button variant="warning" className="mx-2">Login</Button>
-                        </Link>}
+                        {
+                            user.signed ?
+                            <Button onClick={() => setUser({
+                                signed: false,
+                                name: '',
+                                email: '',
+                                password: '',
+                                message: ''
+                            })} variant="warning" className="mx-2">Logout, {user.name}</Button> :
+                            <Link to="/login">
+                                <Button variant="warning" className="mx-2">Login</Button>
+                            </Link>
+                        }
                     </Nav>
                 </Navbar.Collapse>
             </Container>

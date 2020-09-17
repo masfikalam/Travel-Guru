@@ -14,13 +14,15 @@ const Home = () => {
                 <Row className="pb-5">
                     <Col lg={8}>
                         <Row>
-                            {places.map(place =>
+                            {
+                                places.map(place =>
                                 <Col className="placePhoto" sm={4} key={place.name}>
                                     <div onClick={() => setShowPlace(place)} className="small mt-3 text-white text-center d-block bg-transparent">
                                         <img src={place.photo} alt="" className="photo" />
                                         {place.name}
                                     </div>
-                                </Col>)}
+                                </Col>)
+                            }
                         </Row>
                     </Col>
                     <Col lg={4} className="text-center text-lg-right">
