@@ -2,11 +2,12 @@ import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import fakeData from '../../FakeData/FakeData';
+import SimpleMap from './Map';
 import star from './star.png';
 
 const Hotels = () => {
     const {placeName} = useParams();
-    const {hotels, map} = fakeData.find(place => place.name === placeName);
+    const {hotels, lat, lng} = fakeData.find(place => place.name === placeName);
 
     return (
         <section className="hotels text-white">
@@ -37,7 +38,7 @@ const Hotels = () => {
                         }
                     </Col>
                     <Col md={6} className="my-3">
-                        <iframe title={placeName} src={map} width="100%" height="675" frameBorder="1" allowFullScreen="" aria-hidden="false" tabIndex="0"></iframe>
+                        <SimpleMap name={placeName} lat={lat} lng={lng} />
                     </Col>
                 </Row>
             </Container>
