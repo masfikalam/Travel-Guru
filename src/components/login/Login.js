@@ -19,34 +19,11 @@ const Login = () => {
     const location = useLocation();
     const {from} = location.state || {from:{pathname:"/"}};
 
-    // google sign in
-    const googleSingIn = () => {
-        const providerGL = new firebase.auth.GoogleAuthProvider();
-
-        firebase.auth().signInWithPopup(providerGL)
-        .then(result => {
-            const {displayName, email} = result.user;
-            const optUser = {
-                signed: true,
-                name: displayName,
-                email: email,
-                message: 'Login Successful'
-            }
-            setUser(optUser);
-            history.replace(from);
-        })
-        .catch(error => {
-            const optUser = {};
-            optUser.message = error.message;
-            setUser(optUser);
-        });
-    }
-
-    // facebook sign in
-    const facebookSingIn = () => {
-        const providerFB = new firebase.auth.FacebookAuthProvider();
-
-        firebase.auth().signInWithPopup(providerFB)
+    // fb or google signin function
+    const providerGL = new firebase.auth.GoogleAuthProvider();
+    const providerFB = new firebase.auth.FacebookAuthProvider();
+    const FBorGoogle = (provider) => {
+        firebase.auth().signInWithPopup(provider)
         .then(result => {
             const {displayName, email} = result.user;
             const optUser = {
@@ -85,7 +62,6 @@ const Login = () => {
     }
     
     const subForm = (e) => {
-        
         // email sign in
         if (newUser){
             if(validForm) {
@@ -202,11 +178,11 @@ const Login = () => {
                 </Form>
                     <hr className="bg-white" />
                     
-                    <Button variant="light" className="my-3 rounded-pill" onClick={googleSingIn}>
+                    <Button variant="light" className="my-3 rounded-pill" onClick={() => FBorGoogle(providerGL)}>
                         <img src={google} className="icon" alt=""/>
                         Sign in with Google
                     </Button>
-                    <Button variant="light" className="my-3 rounded-pill" onClick={facebookSingIn}>
+                    <Button variant="light" className="my-3 rounded-pill" onClick={() => FBorGoogle(providerFB)}>
                         <img src={fb} className="icon" alt=""/>
                         Sign in with Facebook
                     </Button>
