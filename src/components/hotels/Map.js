@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import GoogleMapReact from 'google-map-react';
 
 const AnyReactComponent = (props) => <span className="p-1 bg-warning text-dark rounded">{props.text}</span>;
