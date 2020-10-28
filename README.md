@@ -1,5 +1,13 @@
 # Travel Guru
 
-This is a single page web application made with React. I also used React Router for routing, Bootstrap for layout and styles, Firebase for authentication and Google Maps API.
+This is a single page web application.
 
-In this application, user selects a destination first. Then user can read some details about the destination and adjust stay period. Then user has to login with google/facebook/email or create an account to book hotels. Destination's map is displayed alongside.
+* User's can select a destination first.
+* Users can adjust their stay period.
+* User has to login with google / facebook / email or create an account to book hotels.
+* Destination's map is displayed alongside with available hotels.
+
+Technologies : React, React Router, Bootstrap, Firebase, Google Maps
+
+* [Live Site](https://travel-guru-hotels.web.app/)
+* [Github](https://github.com/masfikalam/Travel-Guru)
